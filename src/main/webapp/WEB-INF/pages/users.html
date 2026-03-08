@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список пользователей</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h1>Список пользователей</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Отдел</th>
+        <th>Зарплата</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}">1</td>
+        <td th:text="${user.name}">Иван</td>
+        <td th:text="${user.surName}">Иванов</td>
+        <td th:text="${user.department}">IT</td>
+        <td th:text="${user.salary}">1000</td>
+    </tr>
+    </tbody>
+</table>
+
+<p th:if="${#lists.isEmpty(users)}">Список пользователей пуст.</p>
+
+<p><a href="/">На главную</a></p>
+</body>
+</html>
