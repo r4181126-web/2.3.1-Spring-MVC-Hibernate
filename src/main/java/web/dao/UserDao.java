@@ -9,7 +9,7 @@ public interface UserDao {
 
     void dropUsersTable();
 
-    void saveUser(String name, String surName, String department, int salary);
+    void saveUser(String name, String surName, String department, int salary, String password);
 
     void removeUserById(long id);
 
@@ -18,4 +18,6 @@ public interface UserDao {
     void cleanUsersTable();
 
     void updateUser(Users user);
+
+    Users getUserById(long id);
 }

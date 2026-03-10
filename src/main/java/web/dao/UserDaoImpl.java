@@ -36,8 +36,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void saveUser(String name, String surName, String department, int salary) {
-        Users users = new Users(name, surName, department, salary);
+    public void saveUser(String name, String surName, String department, int salary, String password) {
+        Users users = new Users(name, surName, department, salary, password);
         entityManager.persist(users);
     }
 
@@ -65,5 +65,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void updateUser(Users user) {
         entityManager.merge(user);
+    }
+
+    @Override
+    public Users getUserById(long id) {
+        return entityManager.find(Users.class, id);
     }
 }

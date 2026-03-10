@@ -25,45 +25,78 @@ public class Users {
     @Column
     private int salary;
 
-    public Users(String name, String surName, String department, int salary) {
+    @Column
+    private String password;
+
+    public Users(String name, String surName, String department, int salary, String password) {
         this.name = name;
         this.surName = surName;
         this.department = department;
         this.salary = salary;
+        this.password = this.password;
     }
 
-    public Users() {}
+    public Users() {
+    }
 
-    public Long getId() {return id;}
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) {this.id = id;}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getName() {return name;}
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) {this.name = name;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getSurName() {return surName;}
+    public String getSurName() {
+        return surName;
+    }
 
-    public void setSurName(String surName) {this.surName = surName;}
+    public void setSurName(String surName) {
+        this.surName = surName;
+    }
 
-    public String getDepartment() {return department;}
+    public String getDepartment() {
+        return department;
+    }
 
-    public void setDepartment(String department) {this.department = department;}
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
-    public int getSalary() {return salary;}
+    public int getSalary() {
+        return salary;
+    }
 
-    public void setSalary(int salary) {this.salary = salary;}
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
-        return id == users.id && salary == users.salary && Objects.equals(name, users.name) && Objects.equals(surName, users.surName) && Objects.equals(department, users.department);
+        return id == users.id && salary == users.salary && Objects.equals(name, users.name) && Objects.equals(surName, users.surName) && Objects.equals(department, users.department) && Objects.equals(password, users.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, surName, department, salary);
+        return Objects.hash(id, name, surName, department, salary, password);
     }
 
     @Override
@@ -74,6 +107,8 @@ public class Users {
                 ", surName='" + surName + '\'' +
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
-                '}';
+                ", password='" + password + '\'' +
+                '}' ;
     }
 }
+

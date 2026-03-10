@@ -30,6 +30,7 @@
         <th>Фамилия</th>
         <th>Отдел</th>
         <th>Зарплата</th>
+        <th colspan="2">Действия</th>
     </tr>
     </thead>
     <tbody>
@@ -39,12 +40,23 @@
         <td th:text="${user.surName}">Иванов</td>
         <td th:text="${user.department}">IT</td>
         <td th:text="${user.salary}">1000</td>
+
+        <td>
+            <form th:action="@{/users/delete}" method="post">
+                <input type="hidden" name="id" th:value="${user.id}" />
+                <button type="submit">Удалить</button>
+            </form>
+        </td>
+
+        <td>
+            <a th:href="@{/users/edit/{id}(id=${user.id})}">Редактировать</a>
+        </td>
     </tr>
     </tbody>
 </table>
 
 <p th:if="${#lists.isEmpty(users)}">Список пользователей пуст.</p>
 
-<p><a href="/">На главную</a></p>
+<p><a th:href="@{/users/new}">Добавить нового пользователя</a></p>
 </body>
 </html>
