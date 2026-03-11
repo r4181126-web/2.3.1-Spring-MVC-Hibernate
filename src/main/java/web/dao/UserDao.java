@@ -5,9 +5,6 @@ import web.model.Users;
 import java.util.List;
 
 public interface UserDao {
-    void createUsersTable();
-
-    void dropUsersTable();
 
     void saveUser(String name, String surName, String department, int salary, String password);
 

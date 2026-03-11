@@ -16,14 +16,6 @@ public class UserServiceimpl implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void createUsersTable() {
-        dao.createUsersTable();
-    }
-
-    public void dropUsersTable() {
-        dao.dropUsersTable();
-    }
-
     public void saveUser(String name, String surName, String department, int salary, String password) {
         String encodedPassword = passwordEncoder.encode(password);
         dao.saveUser(name, surName, department, salary, encodedPassword);

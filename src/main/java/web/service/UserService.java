@@ -4,9 +4,6 @@ import web.model.Users;
 import java.util.List;
 
     public interface UserService {
-        void createUsersTable();
-
-        void dropUsersTable();
 
         void saveUser(String name, String SurName, String department, int salary, String password);
 
